@@ -1,0 +1,18 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<ul>
+    <li><a href="{{ obj.id }}/edit">{{ obj.patient }}</a> </li>
+    <li>{{ obj.doctor }}</li>
+    <li>{{ obj.symptoms }}</li>
+    <li>{{ obj.date }}</li>
+    <li>{{ obj.startTime }}</li>
+</ul>
+</form>
+</body>
+</html>

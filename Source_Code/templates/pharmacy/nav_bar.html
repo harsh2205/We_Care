@@ -1,0 +1,56 @@
+{% load static %}
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src={% static "img/profile_small.jpg" %}/>
+                             </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong
+                                    class="font-bold">David Williams</strong>
+                             </span> <span class="text-muted text-xs block">Staff <b class="caret"></b></span> </span>
+                    </a>
+                </div>
+                <div class="logo-element">
+                    IN+
+                </div>
+            </li>
+            <li>
+                <a href={% url "pharmacy" %}><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span
+                        class="fa arrow"></span></a>
+            </li>
+            <li>
+                <a href={% url "manufacturer" %}><i class="fa fa-th-large"></i> <span
+                        class="nav-label">Manufacturer(s)</span>
+                    <span class="fa arrow"></span></a>
+            </li>
+            <li>
+                <a href={% url "supplier" %}><i class="fa fa-th-large"></i> <span
+                        class="nav-label">Suppliers(s)</span>
+                    <span class="fa arrow"></span></a>
+            </li>
+            <li>
+                <a href={% url "batchs" %}><i class="fa fa-th-large"></i> <span
+                        class="nav-label">Medicine Batches(s)</span>
+                    <span class="fa arrow"></span></a>
+            </li>
+            <li>
+                <a href={% url "product" %}><i class="fa fa-th-large"></i> <span
+                        class="nav-label">Product(s)</span>
+                    <span class="fa arrow"></span></a>
+            </li>
+            <li>
+                <a href={% url "view_pending_bills" %}><i class="fa fa-th-large"></i> <span
+                        class="nav-label">Pending Bills</span>
+                    <span class="fa arrow"></span></a>
+            </li>
+            <li>
+                <a href={% url "all_bills" %}><i class="fa fa-th-large"></i> <span
+                        class="nav-label"> All Bills</span>
+                    <span class="fa arrow"></span></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>

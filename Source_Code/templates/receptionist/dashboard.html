@@ -1,0 +1,458 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+ <!-- Include Head -->
+    {% include 'partials/head.html' %}
+
+<body class="no-skin-config">
+
+    <div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src={% static "img/profile_small.jpg"%} />
+                             </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                             </span> <span class="text-muted text-xs block">Doctor <b class="caret"></b></span> </span> </a>
+
+                    </div>
+                    <div class="logo-element">
+                        IN+
+                    </div>
+                </li>
+                <li>
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <form role="search" class="navbar-form-custom" action="search_results.html">
+                <div class="form-group">
+                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                </div>
+            </form>
+        </div>
+            <ul class="nav navbar-top-links navbar-right">
+
+                <li>
+                    <a href="/logout/">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+        </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Receptionist</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="active">
+                            <strong>Dashboard</strong>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+        <div class="wrapper wrapper-content  animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox "> <!--  search patients  -->
+
+                        <div class="ibox-content">
+
+
+<!--
+                            <p>
+                                Type in the name of the patient you want to search.
+                            </p>
+-->
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h3>View/Search Patient</h3>
+
+                                    <div class="m-t" role="form" action="login.html">
+                                        <div class="form-group">
+                                            <input type="text" id="firstname" class="form-control" placeholder="First Name" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="lastname" class="form-control" placeholder="Last Name" >
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" id="email" class="form-control" placeholder="Email" >
+                                        </div>
+                                     <div>
+
+                                             <div class="text-center">
+                                                 <button id="search_btn" type="button" class="btn btn-primary" >
+                                                     Search
+                                                 </button>
+                                             </div>
+                                         <div class="text-center">
+                                             <div class="modal inmodal" id="myModal1" tabindex="-1" role="dialog" aria-hidden="true">
+                                                 <div class="modal-dialog">
+                                                     <div class="modal-content animated bounceInRight">
+                                                         <div class="modal-header">
+                                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                             <!-- <i class="fa fa-laptop modal-icon"></i> -->
+                                                             <h4 class="modal-title">Patient Details</h4>
+                                                         </div>
+                                                         <div class="modal-body" style="font-size:20px">
+                                                             <p> <strong> First name:</strong> manisha
+                                                             <br/>
+                                                             <strong> Last name: </strong>  sharma
+                                                             <br/>
+                                                             <strong> Phone number: </strong> 876598765
+                                                             <br/>
+                                                                 <strong> email: </strong> abc@f.com
+                                                             <br/>
+                                                             <strong> Address: </strong> Manning
+                                                             <br/>
+                                                             </p>
+                                                             <!-- <div class="form-group"><label>Sample Input</label> <input type="email" placeholder="Enter your email" class="form-control"></div> -->
+                                                         </div>
+                                                         <div class="modal-footer">
+                                                             <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+
+
+                                                         </div>
+
+
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+
+
+                                     </div>
+                                    </div>
+
+                                    </form>
+
+
+                                </div>
+                                <div class="col-md-9">
+                                    <h3>Patient Queue</h3>
+
+<!--                                    <p>
+                                        Additionally, you can define a <code>data-clipboard-action</code> attribute to specify if you want to either <code>copy</code> or <code>cut</code> content.
+                                    </p>-->
+
+                                    <div class="ibox float-e-margins">
+                                        <div class="ibox-content">
+                                            <div class="table-responsive">
+                                                <table id="patient_queue" class="table table-striped">
+                                                    <thead>
+                                                    <tr>
+
+                                                        <th>Username</th>
+                                                        <th>Phone Number</th>
+                                                        <th>Email</th>
+                                                        <th> Appoitment Date </th>
+                                                        <th>Appointment time </th>
+
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+
+                                                        <td>msharma</td>
+                                                        <td>828282828</td>
+                                                        <td>m_s@abc.com</td>
+                                                        <td> 9/2/2017</td>
+                                                        <td> 3:45 PM </td>
+
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>kvats</td>
+                                                        <td>82828828</td>
+                                                        <td>v_s@ac.com</td>
+                                                        <td> 9/2/2017</td>
+                                                        <td> 4:00 PM </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>msharma</td>
+                                                        <td>828282828</td>
+                                                        <td>m_s@abc.com</td>
+                                                        <td> 9/2/2017</td>
+                                                        <td> 4:30 PM </td>
+
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="ibox list_patient">
+                        <div class="ibox-title">
+                            <h5>Patient Search List</h5>
+                        </div>
+
+                        <div class="row list_patient" id=''>
+                            <div class="col-lg-12">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-content">
+                                        <div class="table-responsive">
+                                            <table id="patient_list" class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th>First Name</th>
+                                                    <th>Last name</th>
+                                                    <th>Phone Number</th>
+                                                    <th>Email</th>
+                                                    <th>Link</th>
+                                                </tr>
+                                                </thead>
+
+                                                <tbody>
+
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> <!--  Action Screen  -->
+                </div>
+            </div>
+        </div>
+
+<!-------------------------------------------------->
+            <div class="row" id="reg_patient">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Register New Patient</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <form class="form-horizontal">
+                                <div class="form-group"><label class="col-sm-2 control-label"> First Name</label>
+
+                                    <div class="col-sm-10"><input type="text" id="r_first_name" class="form-control"></div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group"><label class="col-sm-2 control-label">Last Name</label>
+                                    <div class="col-sm-10"><input type="text" id="r_last_name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group"><label class="col-sm-2 control-label">Email</label>
+
+                                    <div class="col-sm-10"><input id="r_email" type="email" class="form-control" ></div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+
+                                <div class="form-group"><label class="col-sm-2 control-label">Phone Number</label>
+
+                                    <div class="col-sm-10"><input id="r_phone_number" type="number" class="form-control" ></div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Birthday Date</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="r_dob" class="form-control" data-mask="99/99/9999" placeholder="">
+                                        <span class="help-block">YYYY/MM/DD</span>
+                                    </div>
+                                </div>
+                                 <div class="hr-line-dashed"></div>
+                                 <div class="form-group"><label class="col-sm-2 control-label">Blood Group</label>
+
+                                    <div class="col-sm-10"><input id="blood_group" type="text" class="form-control" ></div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <button id="r_new_patient_btn" type="button" class="btn btn-primary center-block" >
+                                                     Register Patient
+                                                 </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+        <div class="footer">
+            <div class="pull-right">
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+
+    <!-- Include scripts -->
+    {% include 'partials/footer_scripts.html' %}
+
+<script src={% static "js/plugins/toastr/toastr.min.js" %}></script>
+
+<script>
+
+    $(document).ready(function (){
+
+        $("#reg_patient").hide();
+
+
+
+        $("#search_btn").click(function () {
+      $.ajax({
+        url: "/search",
+        type: 'POST',
+        data: {
+        	first_name: $('#firstname').val(),
+            last_name: $('#lastname').val(),
+            email: $('#email').val()
+        },
+        dataType: 'json',
+        success: function (data) {
+            $(".list_patient").show();
+        $.each(data, function (i, item) {
+                        var response = data[i].fields
+                        console.log(data[i].fields.first_name);
+                        $('#patient_list tbody').html("" +
+                            "<tr>" +
+                            "    <td>"+response.first_name+"</td>" +
+                            "    <td>"+response.last_name+"</td>" +
+                            "    <td>"+response.phone_number+"</td>" +
+                            "    <td>"+response.email+"</td>" +
+                            "<td><div><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#myModal2\"> " +
+                            "View" +
+                            "</button>" +
+                            "            <button class=\"btn btn-primary\" type=\"submit\">Book Appt" +
+                            "            </button></div></td></tr>")
+                    })
+
+
+        },
+          error: function (jqXHR, exception) {
+
+            $("#r_first_name").val($('#firstname').val());
+            $("#r_last_name").val($('#lastname').val());
+            $("#r_email").val($('#email').val());
+            $(".list_patient").hide();
+            $("#reg_patient").show();
+
+
+        var msg = '';
+        if (jqXHR.status === 0) {
+            msg = 'Not connect.\n Verify Network.';
+        } else if (jqXHR.status === 404) {
+            msg = 'Requested page not found. [404]';
+        } else if (jqXHR.status === 500) {
+            msg = 'Internal Server Error [500].';
+        } else if (exception === 'parsererror') {
+            msg = 'Requested JSON parse failed.';
+        } else if (exception === 'timeout') {
+            msg = 'Time out error.';
+        } else if (exception === 'abort') {
+            msg = 'Ajax request aborted.';
+        } else {
+            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+        }
+        console.log(msg)
+        }
+      });
+
+    });
+
+
+         $("#r_new_patient_btn").click(function () {
+             debugger
+      $.ajax({
+        url: "/register_patient",
+        type: 'POST',
+        data: {
+        	first_name: $('#r_first_name').val(),
+            last_name: $('#r_last_name').val(),
+            email: $('#r_email').val(),
+            dob: "2001-12-21",
+            blood_group:"O+",
+            phone_number: '1234567890'
+        },
+        dataType: 'json',
+        success: function (data) {
+            if(data['message']== "User Already Exists"){
+                alert("User Already Exists");
+            }
+            else{
+            alert("Patient Registered")}
+        },
+          error: function (jqXHR, exception) {
+        var msg = '';
+        if (jqXHR.status === 0) {
+            msg = 'Not connect.\n Verify Network.';
+        } else if (jqXHR.status == 404) {
+            msg = 'Requested page not found. [404]';
+        } else if (jqXHR.status == 500) {
+            msg = 'Internal Server Error [500].';
+        } else if (exception === 'parsererror') {
+            msg = 'Requested JSON parse failed.';
+        } else if (exception === 'timeout') {
+            msg = 'Time out error.';
+        } else if (exception === 'abort') {
+            msg = 'Ajax request aborted.';
+        } else {
+            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+        }
+        alert(msg)
+        }
+      });
+
+    });
+
+
+
+    });
+
+
+</script>
+
+
+
+
+</body>
+
+</html>

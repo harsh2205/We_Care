@@ -1,0 +1,102 @@
+{#-------------------Load Section-------------------------#}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load addcss %}
+{#---------------------------------------------------------#}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | {{ title }}</title>
+
+    <link href={% static "css/bootstrap.min.css" %} rel="stylesheet">
+    <link href={% static "font-awesome/css/font-awesome.css" %} rel="stylesheet">
+
+    <link href={% static "css/animate.css" %} rel="stylesheet">
+    <link href={% static "css/style.css" %} rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+<div class="middle-box text-center loginscreen animated fadeInDown">
+    <div>
+        <div>
+
+            <h1 class="logo-name">
+
+                <img src={% static "logo/logo.svg" %} class="img-fluid" height="150px" width="150px">
+            </h1>
+
+        </div>
+        <h3>Welcome to {{ title }}</h3>
+        {#-----------------------------------------------------------------#}
+        {#            <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.#}
+        {##}
+        {#            </p>#}
+        {#-----------------------------------------------------------------#}
+        <p>Login in. To see it in action.</p>
+        <form method="post" action="" class="m-t" role="form" enctype="multipart/form-data">
+            {% csrf_token %}
+
+{#------------------------------- Errors Show ----------------------------------#}
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+
+
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field | addcss:"form-control" }}
+                </div>
+            {% endfor %}
+{#-----------------------------------------------------------------#}
+
+            <button type="submit" class="btn btn-primary block full-width m-b">{{ title }}</button>
+
+            <a href="#">
+
+            </a>
+            <p class="text-muted text-center">
+
+            </p>
+            
+        </form>
+    </div>
+</div>
+
+<!-- Mainly scripts -->
+<script src={% static "js/jquery-3.1.1.min.js" %}></script>
+<script src={% static "js/bootstrap.min.js" %}></script>
+
+<!-- Page Level Scripts -->
+<script>
+    $(document).ready(function () {
+        $(".alert").fadeTo(2000, 500).slideUp(500, function () {
+            $(".alert").slideUp(1000);
+        });
+    });
+
+</script>
+
+
+</body>
+
+</html>

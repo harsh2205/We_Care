@@ -1,0 +1,297 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DEMO</title>
+
+    <link href={%  static "css/bootstrap.min.css" %} rel="stylesheet">
+    <link href={%  static "font-awesome/css/font-awesome.css" %} rel="stylesheet">
+
+    <!-- FooTable -->
+    <link href={%  static "css/plugins/footable/footable.core.css" %} rel="stylesheet">
+
+    <link href={%  static "css/animate.css" %} rel="stylesheet">
+    <link href={%  static "css/style.css" %} rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src={%  static "img/profile_small.jpg"%} />
+                             </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="contacts.html">Contacts</a></li>
+                            <li><a href="mailbox.html">Mailbox</a></li>
+                            <li class="divider"></li>
+                            <li><a href="login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        IN+
+                    </div>
+                </li>
+                <li>
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="index.html">Dashboard v.1</a></li>
+                        <li><a href="dashboard_2.html">Dashboard v.2</a></li>
+                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>
+                        <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
+                        <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <a href="login.html">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Medicine Inventory</h2>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+
+            <div class="ibox-content m-b-sm border-bottom">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label class="control-label" for="product_name">Medicine Name</label>
+                            <input type="text" id="product_name" name="product_name" value="" placeholder="Ex.   Aspirin " class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label class="control-label" for="Power">Power</label>
+                            <input type="text" id="power" name="power" value="" placeholder="Ex. 50 mg" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label class="control-label" for="order"></label>
+                            <br/>
+                            <input type="button" id="Search" name="order" value="Search"  class="btn btn-primary">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-content">
+
+                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+                                <thead>
+                                <tr>
+
+                                    <th data-toggle="true">Medicine Name</th>
+                                    <th data-hide="phone">Description</th>
+                                    <th data-hide="all">Description</th>
+                                    <th data-hide="phone">Price</th>
+                                    <th data-hide="phone,tablet" >Quantity</th>
+                                    <th data-hide="phone">Status</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        Asprin
+                                    </td>
+
+                                    <td>
+                                        Ia salicylate and a nonsteroidal anti-inflammatory drug (NSAID)
+                                    </td>
+                                    <td>
+                                        $5.00
+                                    </td>
+                                    <td>
+                                        1000
+                                    </td>
+                                    <td>
+                                        <span class="label label-primary">Enable</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">Add</button><br/><br/>
+                                            <button class="btn btn-primary">Remove</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Chavan
+                                    </td>
+
+                                    <td>
+                                        Dabur Chyawanprash is a time-tested Ayurvedic\
+                                        more than 41 Ayurvedic herbs that aid in boosting the immuned
+                                    </td>
+                                    <td>
+                                        $0.00
+                                    </td>
+                                    <td>
+                                        4300
+                                    </td>
+                                    <td>
+                                        <span class="label label-primary">Enable</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">Add</button><br/><br/>
+                                            <button class="btn btn-primary">Remove</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Beer
+                                    </td>
+
+                                    <td>
+                                        anticancer properties, a reduced risk of cardiovascular diseases,
+                                        increased bone density, the prevention of dementia and coronary disease,
+                                        aid to the digestive system, anti-aging properties
+                                    </td>
+                                    <td>
+                                        10.73
+                                    </td>
+                                    <td>
+                                        300
+                                    </td>
+                                    <td>
+                                        <span class="label label-danger">Disabled</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">Add</button><br/><br/>
+                                            <button class="btn btn-primary">Remove</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Ganja
+                                    </td>
+                                    <td>
+                                        marijuana not only doesn't impair lung function, it may even increase lung
+                                        capacity.
+                                    </td>
+                                    <td>
+                                        $60.00
+                                    </td>
+                                    <td>
+                                        2300
+                                    </td>
+                                    <td>
+                                        <span class="label label-primary">GET!</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">Add</button><br/><br/>
+                                            <button class="btn btn-primary">Remove</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        <ul class="pagination pull-right"></ul>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="footer">
+            <div class="pull-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> Example Company &copy; 2014-2017
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- Mainly scripts -->
+<script src={%  static "js/jquery-3.1.1.min.js" %}></script>
+<script src={%  static "js/bootstrap.min.js" %}></script>
+<script src={%  static "js/plugins/metisMenu/jquery.metisMenu.js" %}></script>
+<script src={%  static "js/plugins/slimscroll/jquery.slimscroll.min.js" %}></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src={%  static "js/plugins/pace/pace.min.js" %}></script>
+
+<!-- FooTable -->
+<script src={%  static "js/plugins/footable/footable.all.min.js" %}></script>
+
+<!-- Page-Level Scripts -->
+<script>
+    $(document).ready(function() {
+        $('.footable').footable();
+    });
+</script>
+
+</body>
+
+</html>
